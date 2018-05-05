@@ -43,7 +43,7 @@
             display: grid;
             grid-template-columns: 4rem auto;
             grid-column-gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
         .mentor-card .header .info {
             overflow: hidden; /* need for ellipsis text */
@@ -58,6 +58,8 @@
         }
         .mentor-card .tweet {
             white-space: pre-wrap;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
         .mentor-card .bio {
             color: #A6A6A6;
@@ -66,9 +68,6 @@
         @media screen and (max-width: 480px) {
             .mentor-card .bio {
                 font-size: 0.75rem;
-            }
-            .mentor-card .tweet {
-                font-size: 0.9rem;
             }
             .mentor-card .header {
                 grid-template-columns: 3.5rem auto;
