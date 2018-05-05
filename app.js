@@ -17,7 +17,10 @@ app.get('/', (req, res) => {
     const mentors = response.Items.map(mentor => Object.assign(mentor, {
       twitter_url: `https://twitter.com/${mentor.username}`,
       tweet: mentor.tweet.trim().replace(/https:\/\/t\.co\/\w+$/, ''),
-      profile_image: mentor.profile_image || 'https://abs.twimg.com/sticky/default_profile_images/default_profile.png',
+      profile_image:
+        mentor.profile_image
+          ? mentor.profile_image.replace(/(\.[A-Za-z]{3,4})$/, '_bigger$1')
+          : 'https://abs.twimg.com/sticky/default_profile_images/default_profile.png',
     }));
     res.render('home', { mentors });
   });
