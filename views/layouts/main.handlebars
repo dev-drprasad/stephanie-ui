@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mentors</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -22,6 +22,11 @@
             text-decoration: none;
             color: inherit;
         }
+        .long {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
         .main {
             width: 100%;
             max-width: 1000px;
@@ -35,7 +40,18 @@
             box-shadow: 3px 3px 10px #d2d2d2;
         }
         .mentor-card .header {
-            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 4rem auto;
+            grid-column-gap: 15px;
+            margin-bottom: 25px;
+        }
+        .mentor-card .header .info {
+            overflow: hidden; /* need for ellipsis text */
+        }
+        .mentor-card .header .profile_image {
+            width: 100%;
+            align-self: center;
+            border-radius: 50%;
         }
         .mentor-card .profile_link:hover {
             color: #FF66A5;
@@ -46,6 +62,21 @@
         .mentor-card .bio {
             color: #A6A6A6;
             font-size: 0.8rem;
+        }
+        @media screen and (max-width: 480px) {
+            .mentor-card .bio {
+                font-size: 0.75rem;
+            }
+            .mentor-card .tweet {
+                font-size: 0.9rem;
+            }
+            .mentor-card .header {
+                grid-template-columns: 3.5rem auto;
+            }
+            .mentor-card {
+                padding: 10px;
+                margin: 10px;
+            }
         }
     </style>
 </head>

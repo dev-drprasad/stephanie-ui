@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
     const mentors = response.Items.map(mentor => Object.assign(mentor, {
       twitter_url: `https://twitter.com/${mentor.username}`,
       tweet: mentor.tweet.trim().replace(/https:\/\/t\.co\/\w+$/, ''),
+      profile_image: mentor.profile_image || 'https://abs.twimg.com/sticky/default_profile_images/default_profile.png',
     }));
     res.render('home', { mentors });
   });

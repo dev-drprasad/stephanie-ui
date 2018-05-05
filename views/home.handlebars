@@ -1,8 +1,11 @@
 {{#each mentors}}
   <div class="mentor-card">
     <div class="header">
-      <h3><a class="profile_link" href="{{twitter_url}}">{{full_name}}</a></h3>
-      <div class="bio">{{bio}}</div>
+      <img class="profile_image" src="{{profile_image}}" />
+      <div class="info">
+        <h4 class="name long"><a class="profile_link" href="{{twitter_url}}">{{full_name}}</a></h4 class="name">
+        <div class="bio">{{bio}}</div>
+      </div>
     </div>
     <div class="tweet">{{tweet}}</div>
   </div>
