@@ -3,8 +3,15 @@
     <div class="header">
       <img class="profile_image" src="{{profile_image}}" />
       <div class="info">
-        <h4 class="name long"><a class="profile_link" href="{{twitter_url}}">{{full_name}}</a></h4 class="name">
+        <h4 class="name long">
+          <a class="profile_link" href="{{twitter_url}}" rel="noopener noreferrer" target="_blank">{{full_name}}</a>
+        </h4>
         <div class="bio">{{bio}}</div>
+          {{#if website}}
+            <div class="website long">
+              <a class="website_link" href="{{website}}" rel="noopener noreferrer" target="_blank">{{website}}</a>
+            </div>
+          {{/if}}
       </div>
     </div>
     <div class="tweet">{{{tweet}}}</div>
