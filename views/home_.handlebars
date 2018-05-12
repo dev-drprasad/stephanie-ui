@@ -1,0 +1,75 @@
+
+{{#contentFor 'head'}}
+<style type="text/css">
+  .mentor-card {
+    display: grid;
+    grid-template-columns: 250px auto;
+    background-color: #ffffff;
+    margin: 30px 15px;
+    box-shadow: 3px 3px 12px #dddddd;
+  }
+  .mentor-card .header {
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-rows: 35px auto; /* 70px - this = translate */
+    grid-template-areas:
+      "image contact-links"
+      "name name"
+      "bio bio";
+    grid-gap: 10px;
+    color: #ffffff;
+    background-color: #1D3557;
+    padding: 15px;
+  }
+  .mentor-card .header .profile-image {
+    grid-area: image;
+    width: 100%;
+    transform: translateY(-35px);
+    border-radius: 50%;
+  }
+  .mentor-card .header .name {
+    grid-area: name;
+  }
+  .mentor-card .header .contact-links {
+    grid-area: contact-links;
+    text-align: right;
+  }
+  .website-link img, .twitter-link img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+  }
+  .mentor-card .header .bio {
+    grid-area: bio;
+    grid-column: 1 / -1;
+    color: #d2d2d2;
+    font-size: 0.8rem;
+  }
+  .mentor-card .tweet {
+    padding: 15px;
+  }
+</style>
+{{/contentFor}}
+
+{{#each mentors}}
+  <div class="mentor-card">
+    <div class="header">
+      <img class="profile-image" src="{{profile_image}}" />
+      <h4 class="name long">
+        <a class="profile-link" href="{{twitter_url}}" rel="noopener noreferrer" target="_blank">{{full_name}}</a>
+      </h4>
+      <div class="bio">{{bio}}</div>
+      <div class="contact-links">
+        {{#if website}}
+          <a class="website-link" title="website" href="{{website}}" rel="noopener noreferrer" target="_blank">
+            <img src="/static/images/www.png" />
+          </a>
+        {{/if}}
+        <a class="twitter-link" title="twitter" href="{{twitter_url}}" rel="noopener noreferrer" target="_blank">
+          <img src="/static/images/twitter.svg" />
+        </a>
+      </div>
+    </div>
+    <div class="tweet">{{{tweet}}}</div>
+  </div>
+{{/each}}

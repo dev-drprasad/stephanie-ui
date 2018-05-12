@@ -1,0 +1,48 @@
+.mentor-card {
+  background-color: #ffffff;
+  padding: 15px;
+  margin: 15px;
+  box-shadow: 3px 3px 12px #dddddd;
+}
+.mentor-card .header {
+  display: grid;
+  grid-template-columns: 4rem auto;
+  grid-column-gap: 15px;
+  margin-bottom: 15px;
+}
+.mentor-card .header .info {
+  overflow: hidden; /* need for ellipsis text */
+}
+.mentor-card .header .profile_image {
+  width: 100%;
+  align-self: center;
+  border-radius: 50%;
+}
+.mentor-card .profile_link:hover {
+  color: #ff66a5;
+}
+.mentor-card .tweet {
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+.mentor-card .bio {
+  color: #a6a6a6;
+  font-size: 0.8rem;
+}
+.mentor-card .website_link {
+  font-size: 0.85rem;
+  color: #20a4f3;
+}
+@media screen and (max-width: 480px) {
+  .mentor-card .bio {
+    font-size: 0.75rem;
+  }
+  .mentor-card .header {
+    grid-template-columns: 3.5rem auto;
+  }
+  .mentor-card {
+    padding: 10px;
+    margin: 10px;
+  }
+}
