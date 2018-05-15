@@ -2,51 +2,104 @@
 {{#contentFor 'head'}}
 <style type="text/css">
   .mentor-card {
-    display: grid;
-    grid-template-columns: 250px auto;
     background-color: #ffffff;
-    margin: 30px 15px;
-    box-shadow: 3px 3px 12px #dddddd;
+    margin: 15px 10px;
+    box-shadow: 3px 3px 15px #d8d8d8;
+    border-radius: 10px;
+    overflow: hidden;
   }
   .mentor-card .header {
     display: grid;
-    grid-template-columns: 70px auto;
-    grid-template-rows: 35px auto; /* 70px - this = translate */
+    padding: 5px;
+    grid-template-columns: 65px auto; /* FIXME should we hardcode 65px ? */
+    grid-template-rows: auto auto 25px; /* ==  .contact-icon img.height */
     grid-template-areas:
-      "image contact-links"
-      "name name"
-      "bio bio";
-    grid-gap: 10px;
+      "image name"
+      "image bio"
+      "contact-links bio";
+    grid-column-gap: 10px;
     color: #ffffff;
     background-color: #1D3557;
-    padding: 15px;
   }
   .mentor-card .header .profile-image {
     grid-area: image;
-    width: 100%;
-    transform: translateY(-35px);
+    justify-self: center;
+    width: 75%;
     border-radius: 50%;
   }
   .mentor-card .header .name {
     grid-area: name;
   }
   .mentor-card .header .contact-links {
+    max-height: 100%;
     grid-area: contact-links;
-    text-align: right;
+    align-self: end;
   }
-  .website-link img, .twitter-link img {
+  .contact-icon {
+    display: inline-block;
     width: 20px;
     height: 20px;
-    margin-left: 5px;
+    padding: 5px 5px 0;
+  }
+  .contact-icon img {
+    width: 100%;
   }
   .mentor-card .header .bio {
     grid-area: bio;
-    grid-column: 1 / -1;
-    color: #d2d2d2;
-    font-size: 0.8rem;
+    color: #d8d8d8;
+    font-size: 0.7rem;
   }
   .mentor-card .tweet {
-    padding: 15px;
+    padding: 10px;
+    font-size: 0.85rem;
+    min-height: 120px;
+    border: 1px solid #d2d2d2;
+    border-radius: 0 0 10px 10px;
+  }
+  @media screen and (min-width: 481px) {
+    .mentor-card .header .profile-image {
+      transform: translateY(-35px);
+    }
+    .mentor-card {
+      display: grid;
+      grid-template-columns: 250px auto;
+      margin: 30px 15px;
+      border-radius: 0;
+      overflow: visible;
+    }
+    .mentor-card .header .bio {
+      grid-column: 1 / -1;
+      font-size: 0.8rem;
+    }
+    .mentor-card .header .profile-image {
+      width: 100%;
+    }
+    .mentor-card .header {
+      grid-template-areas:
+      "image contact-links"
+      "name name"
+      "bio bio";
+      grid-template-columns: 70px auto;
+      grid-template-rows: 35px auto; /* 70px - this = translate */
+      grid-gap: 10px;
+      padding: 15px;
+    }
+    .mentor-card .header .contact-links {
+      align-self: auto;
+      justify-self: right;
+    }
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      margin-left: 5px;
+    }
+    .mentor-card .tweet {
+      font-size: 1rem;
+      padding: 15px;
+      border: 0;
+      border-radius: 0;
+    }
   }
 </style>
 {{/contentFor}}
@@ -61,11 +114,11 @@
       <div class="bio">{{bio}}</div>
       <div class="contact-links">
         {{#if website}}
-          <a class="website-link" title="website" href="{{website}}" rel="noopener noreferrer" target="_blank">
+          <a class="contact-icon" title="website" href="{{website}}" rel="noopener noreferrer" target="_blank">
             <img src="/static/images/www.png" />
           </a>
         {{/if}}
-        <a class="twitter-link" title="twitter" href="{{twitter_url}}" rel="noopener noreferrer" target="_blank">
+        <a class="contact-icon" title="twitter" href="{{twitter_url}}" rel="noopener noreferrer" target="_blank">
           <img src="/static/images/twitter.svg" />
         </a>
       </div>

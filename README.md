@@ -11,3 +11,4 @@
 6. https://stackoverflow.com/questions/44176167/dynamo-db-query-using-contains-operator?rq=1
 7. https://stackoverflow.com/questions/35652668/dynamo-db-contains
 8. https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html#scan-property
+9. https://stackoverflow.com/questions/45318266/could-not-load-images-on-lambda-s3
