@@ -67,7 +67,7 @@ functions:
     handler: handler.main
     events:
       - http:
-          path: /{proxy+}
+          path: /static/{proxy+}
           method: GET
       - http:
           path: /
@@ -80,9 +80,7 @@ plugins:
 custom:
   apigwBinary:
     types:           #list of mime-types
-      - 'image/jpeg'
-      - 'image/png'
-      - 'text/html'
+      - '*/*'
   customDomain:
     domainName: mentors.drprasad.in
     basePath: ''
